@@ -1,0 +1,133 @@
+---
+import Hero from '../components/main/HeroImg.astro';
+import Layout from '../layouts/Layout.astro';
+import AnimateOnScroll from '../animations/AnimateOnScroll.astro';
+import FadeInBlurText from '../animations/text/FadeInBlur.astro';
+import Faq1 from '../components/accordions/Faq1.astro';
+---
+
+<Layout title='Home' ogTitle='Home' metaDescription='Home' canonical=''>
+  <Hero />
+  <section class='one'>
+    <div class='container'>
+      <AnimateOnScroll animation='up-slide'>
+        <h1 class='up-slide'>Section h1</h1>
+      </AnimateOnScroll>
+      <div class='side-transition-imgs'>
+        <div class='left-img'>
+          <AnimateOnScroll animation='slide-from-left'>
+            <img
+              src='/img/placeholder/mockup-dark-horizontal.webp'
+              alt='Placeholder Image Left'
+              class='slide-from-left'
+            />
+          </AnimateOnScroll>
+        </div>
+        <div class='right-img'>
+          <AnimateOnScroll animation='slide-from-right'>
+            <img
+              src='/img/placeholder/mockup-dark-horizontal.webp'
+              alt='Placeholder Image Right'
+              class='slide-from-right'
+            />
+          </AnimateOnScroll>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class='two'>
+    <div class='down-under-slide-container'>
+      <AnimateOnScroll animation='down-slide'>
+        <h1 class='down-under-slide'>This is test text heading</h1>
+      </AnimateOnScroll>
+    </div>
+  </section>
+  <section class='three'>
+    <h1>Section 3 : Faqs</h1>
+    <Faq1 />
+  </section>
+  <section class='four'>
+    <FadeInBlurText type='heading'>
+      <h1>
+        <span class='word word-1'>Professional</span>
+        <span class='word word-2'>Design</span>
+        <span class='word word-3'>Solutions</span>
+      </h1>
+    </FadeInBlurText>
+
+    <!-- Paragraph with fade-in blur animation -->
+    <FadeInBlurText type='paragraph'>
+      <p>
+        <span class='word word-1'>We</span>
+        <span class='word word-2'>create</span>
+        <span class='word word-3'>stunning</span>
+        <span class='word word-4'>websites</span>
+        <span class='word word-5'>for</span>
+        <span class='word word-6'>your</span>
+        <span class='word word-7'>business.</span>
+      </p>
+    </FadeInBlurText>
+
+    <!-- Custom duration and delay -->
+    <FadeInBlurText type='heading' duration={1.5} delay={0.08}>
+      <h2>
+        <span class='word word-1'>Fast</span>
+        <span class='word word-2'>and</span>
+        <span class='word word-3'>Beautiful</span>
+      </h2>
+    </FadeInBlurText>
+  </section>
+</Layout>
+
+<style>
+  section {
+    padding: 5rem 4rem;
+    background-color: #f9f9f9;
+    text-align: center;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section.one .container {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+  .side-transition-imgs {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .side-transition-imgs .left-img,
+  .side-transition-imgs .right-img {
+    width: 50%;
+    border-radius: 8px;
+  }
+
+  .side-transition-imgs img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .down-under-slide-container {
+    overflow: hidden;
+    padding-top: 2rem;
+  }
+
+  section.two h1 {
+    font-size: 5rem;
+    font-weight: 500;
+  }
+
+  section.three {
+    background: #f0f0f0;
+  }
+
+  section.three h1 {
+    margin-bottom: 2rem;
+  }
+</style>
